@@ -6,7 +6,10 @@ import { Component, input, Input, ViewEncapsulation } from '@angular/core';
   imports: [],
   templateUrl: './control.component.html',
   styleUrl: './control.component.css',
-  encapsulation: ViewEncapsulation.None //emulated is default
+  encapsulation: ViewEncapsulation.None, //emulated is default,
+  host:{
+    class: 'control'
+  }
 })
 export class ControlComponent {
 
