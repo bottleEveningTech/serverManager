@@ -12,6 +12,7 @@ import { Component, input, Input, signal } from '@angular/core';
 })
 export class DashboardItemComponent {
 
+  
   image = input.required<{src:string; alt: string;}>();
   title = input.required<string>();
   // @Input({required: true}) image!: {src: string, alt:string};

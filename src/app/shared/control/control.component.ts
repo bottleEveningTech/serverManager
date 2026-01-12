@@ -1,4 +1,4 @@
-import { Component, input, Input, ViewEncapsulation } from '@angular/core';
+import { Component, HostBinding, HostListener, input, Input, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-control',
@@ -7,11 +7,19 @@ import { Component, input, Input, ViewEncapsulation } from '@angular/core';
   templateUrl: './control.component.html',
   styleUrl: './control.component.css',
   encapsulation: ViewEncapsulation.None, //emulated is default,
-  host:{
-    class: 'control'
-  }
+  // host:{
+  //   class: 'control',
+  //   '(click)':'onClick()'
+  // }
 })
 export class ControlComponent {
 
-  label = input.required<string>()
+  // @HostBinding('class') className = 'control';
+  // @HostListener('click') 
+  onClick(){
+    console.log('clicked');
+  };
+  label = input.required<string>();
+
+
 }
