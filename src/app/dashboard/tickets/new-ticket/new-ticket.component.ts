@@ -1,4 +1,4 @@
-import { Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { Component, ElementRef, QueryList, viewChild, ViewChild, ViewChildren } from '@angular/core';
 import { ButtonComponent } from "../../../shared/button/button.component";
 import { ControlComponent } from "../../../shared/control/control.component";
 import { FormsModule } from '@angular/forms';
@@ -12,7 +12,9 @@ import { FormsModule } from '@angular/forms';
 })
 export class NewTicketComponent {
   @ViewChildren(ButtonComponent) btns!: QueryList<ButtonComponent>;
-  @ViewChild('form') formele?: ElementRef<HTMLFormElement>;
+  @ViewChild('form') form?: ElementRef<HTMLFormElement>;
+  private btn = viewChild(ButtonComponent);
+  private formele = viewChild.required<ElementRef<HTMLFormElement>>('form');
    
   constructor(){
 
@@ -20,6 +22,7 @@ export class NewTicketComponent {
   onSubmit(title:string, ticketText:string){
     console.log(title);
     console.log(ticketText);
-    this.formele?.nativeElement.reset();
+    this.form?.nativeElement.reset();
+    this.formele()?.nativeElement.reset();
   }
 }
