@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnInit, QueryList, viewChild, ViewChild, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component, effect, ElementRef, OnInit, QueryList, viewChild, ViewChild, ViewChildren } from '@angular/core';
 import { ButtonComponent } from "../../../shared/button/button.component";
 import { ControlComponent } from "../../../shared/control/control.component";
 import { FormsModule } from '@angular/forms';
@@ -17,7 +17,6 @@ export class NewTicketComponent implements AfterViewInit, OnInit{
   private formele = viewChild.required<ElementRef<HTMLFormElement>>('form');
    
   constructor(){
-
   }
   ngAfterViewInit(): void {
     console.log('After view init');
