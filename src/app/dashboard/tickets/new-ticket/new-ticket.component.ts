@@ -19,6 +19,8 @@ export class NewTicketComponent implements AfterViewInit, OnInit{
   // @Output() addTicket = new EventEmitter();
   addTicket = output<{title:string; text:string}>()
    
+  enteredTitle = '';
+  enteredText = '';
   constructor(){
   }
   ngAfterViewInit(): void {
@@ -29,12 +31,16 @@ export class NewTicketComponent implements AfterViewInit, OnInit{
         console.log('on init');
     console.log(this.form?.nativeElement);
   }
-  onSubmit(title:string, ticketText:string){
+  onSubmit(){
     // console.log(title);
     // console.log(ticketText);
     // this.form?.nativeElement.reset();
 
-    this.addTicket.emit({title:title, text: ticketText});
-    this.formele()?.nativeElement.reset();
+    this.addTicket.emit({title:this.enteredTitle, text: this.enteredText});
+
+    // this.formele()?.nativeElement.reset();
+
+    this.enteredText = '';
+    this.enteredTitle = '';
   }
 }
